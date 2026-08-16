@@ -1,0 +1,4 @@
+interface:
+  display_name: "Change Evidence Audit"
+  short_description: "Kanıta dayalı değişiklik denetimi"
+  default_prompt: "$change-evidence-audit ile bu değişiklikleri kanıta dayalı denetle."

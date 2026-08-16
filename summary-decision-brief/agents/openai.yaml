@@ -1,0 +1,4 @@
+interface:
+  display_name: "Summary Decision Brief"
+  short_description: "Kısa, karar odaklı teknik özetler"
+  default_prompt: "Use $summary-decision-brief to turn this into a concise decision brief."

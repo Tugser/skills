@@ -9,6 +9,7 @@ Each skill is a folder with a `SKILL.md` (YAML frontmatter with `name` and `desc
 | Skill | Purpose |
 |-------|---------|
 | [resolve-bug-deeply](./resolve-bug-deeply/) | Evidence-driven bug resolution: competing root-cause hypotheses, impact mapping, minimal architecture-correct fix, regression protection, adversarial review, and explicit closure gates. |
+| [summary-decision-brief](./summary-decision-brief/) | Distill a discussion or session into a concise, auditable decision brief: context, constraints, options with tradeoffs, decision and owner, consequences, risks, follow-ups, open questions. |
 
 ## Install from this repo
 

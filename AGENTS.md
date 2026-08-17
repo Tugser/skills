@@ -126,6 +126,24 @@ Expected behavior:
 
 Do not use it for trivial typo-level fixes where the cause and correction are already obvious.
 
+### `architecture-aware-tdd-fix`
+
+Use when:
+
+- a verified bug fix is ready for implementation,
+- the correct owning layer, public test seam, transaction or recovery boundary must be established before production edits,
+- a fix must be proven through RED/GREEN regression slices instead of patch-first verification.
+
+Expected behavior:
+
+- map the invariant owner, public seam, consumers, and side-effect boundary before writing tests,
+- prove expected RED on unchanged code before any production edit,
+- make the smallest correction at the owner, not duplicated guards at entry points,
+- run the verification ladder with freshly executed evidence,
+- end with exactly one defined termination state.
+
+Do not use it while the root cause is still unsupported by evidence; use `resolve-bug-deeply` first. Send completed work to `change-evidence-audit` for independent review.
+
 ### `change-evidence-audit`
 
 Use when validating:

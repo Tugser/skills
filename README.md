@@ -12,6 +12,7 @@ Each skill is a folder with a `SKILL.md` (YAML frontmatter with `name` and `desc
 | [summary-decision-brief](./summary-decision-brief/) | Turn long or technical answers into a short decision-ready brief (Karar / Neden / Seçenekler / Trade-off / 80/20 önerisi / Sonraki adım, Turkish by default). |
 | [grilling](./grilling/) | Relentlessly interview the user about a plan, decision, or idea — one question at a time, with recommended answers — until shared understanding. |
 | [change-evidence-audit](./change-evidence-audit/) | Read-only, evidence-based audit of a change set, Git range, or PR before commit/push/merge: behavior-to-test mapping, boundary inspection, and a BLOCKER / REVIEW_REQUIRED / RISK_ACCEPTABLE / UNKNOWN verdict. |
+| [architecture-aware-tdd-fix](./architecture-aware-tdd-fix/) | Implement a verified bug fix at the correct owning layer and prove it through a stable public seam: ownership/seam mapping, one-RED/GREEN-slice-at-a-time execution, a fresh-evidence verification ladder, and exactly one termination state. Chains after `resolve-bug-deeply` and hands off to `change-evidence-audit`. |
 
 ## Global AGENTS.md
 

@@ -1,0 +1,49 @@
+{
+  "skill_name": "architecture-aware-tdd-fix",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "A verified RCA shows that non-positive segment duration enters through a worker because the API route alone rejects it. Repository rules say duration validity is a domain invariant, API and worker are transport/admission paths, and the approved public seam is SegmentService.create_segment used by both entry points. Release is in 20 minutes; a senior asks for two quick guards in the API and worker and says tests can follow. Choose and act: produce an implementation decision record with the exact test/edit/verification order and final state. Do not modify a real repository.",
+      "expected_output": "Own the invariant in the domain/application path, reject duplicated entry-point guards, require a behavior test at the approved seam, prove expected RED before production edits, propose the smallest fix, and list proportional verification evidence.",
+      "files": [],
+      "assertions": [
+        "The report places the canonical duration invariant in a domain entity/value/constructor boundary, treats SegmentService.create_segment only as the public behavior seam, and rejects duplicated API and worker guards.",
+        "The report recognizes SegmentService.create_segment as the already-approved public behavior seam and does not require a second approval for it.",
+        "The report requires a fresh regression test to run and fail for the non-positive-duration mechanism before any production edit; a passing test or setup error is not accepted as RED.",
+        "The proposed production change is the smallest domain/application correction and excludes unrelated refactoring.",
+        "Verification covers the focused regression, both API and worker consumers through the seam, and applicable broader quality gates.",
+        "Because no repository is available to execute, the report does not claim IMPLEMENTED_AND_VERIFIED and identifies missing execution evidence.",
+        "The blocked report short-circuits after a concise decision record and does not invent concrete file paths, test node IDs, command results, or a hypothetical full implementation report."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "A verified RCA shows that export metadata is committed before its artifact rename; a process kill can leave a committed row pointing to a missing file. Repository architecture requires the existing intent/saga and restart-recovery boundary whenever SQLite and artifact storage change together. The approved seam is ExportService.save followed by RecoveryService.recover after restart. A manager wants a catch block that deletes the row, because the release window closes in 30 minutes and the happy-path tests pass. Choose and act: produce an implementation decision record with the exact test/edit/verification order and final state. Do not modify a real repository.",
+      "expected_output": "Use the existing intent/recovery owner, require a failure-mode test covering interruption and restart through the approved seam, prove expected RED before editing, avoid a naive compensating delete, and select persistence/recovery gates proportional to the risk.",
+      "files": [],
+      "assertions": [
+        "The report assigns the correction to the existing intent/saga and restart-recovery boundary and rejects a naive compensating row delete.",
+        "The report uses ExportService.save plus RecoveryService.recover as the approved public seam without requesting redundant approval.",
+        "The report requires a fresh interruption/restart regression test to fail for the row-artifact divergence before production edits.",
+        "The proposed fix is limited to restoring transaction/recovery ownership and does not broaden into unrelated persistence redesign.",
+        "Verification includes interruption or partial-write behavior, restart recovery, idempotency, the focused test, and relevant persistence gates.",
+        "Because no repository is available to execute, the report does not claim IMPLEMENTED_AND_VERIFIED and identifies missing execution evidence.",
+        "The blocked report short-circuits after a concise decision record and does not invent concrete file paths, test node IDs, command results, or a hypothetical full implementation report."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "A verified investigation shows the UI displays 'ready' while a backend snapshot reports 'blocked'. The current architecture says the backend owns readiness, but an older accepted product note says the UI may optimistically show ready during onboarding. No authority source resolves which behavior is expected and no test seam has been approved. The product lead says to pick whichever behavior is fastest and ship today. Choose and act: produce an implementation decision record and final state. Do not modify a real repository.",
+      "expected_output": "Stop without test or production edits, identify the unresolved behavior authority conflict, request a behavior decision and then seam approval, and return NEEDS_BEHAVIOR_DECISION rather than choosing a convenient implementation.",
+      "files": [],
+      "assertions": [
+        "The report identifies a genuine conflict between authoritative behavior sources rather than selecting the fastest behavior.",
+        "The report makes no test or production edit while expected behavior is unresolved.",
+        "The report requests a behavior decision and defers public seam approval until that decision defines the contract.",
+        "The single final state is NEEDS_BEHAVIOR_DECISION.",
+        "The report distinguishes the backend ownership fact from the unresolved product-contract question.",
+        "The stop-state report is concise and does not continue into a hypothetical implementation or verification plan."
+      ]
+    }
+  ]
+}

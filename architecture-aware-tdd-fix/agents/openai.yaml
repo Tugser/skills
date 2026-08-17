@@ -1,0 +1,4 @@
+interface:
+  display_name: "Architecture-Aware TDD Fix"
+  short_description: "Sahiplik ve dikiş odaklı TDD hata düzeltimi"
+  default_prompt: "$architecture-aware-tdd-fix ile bu hatayı doğru sahiplik katmanından TDD ile düzelt."
